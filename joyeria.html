@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joyería Luna</title>
+  <style>
+    :root {
+      --rosa-intenso: #FA8CB1;
+      --rosa-suave: #FDC5C9;
+      --cremita: #FFFEE1;
+      --beige: #CFB699;
+      --marron: #9E6D4E;
+      --negro: #000000;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Lora', serif;
+      background-color: var(--cremita);
+      color: var(--negro);
+    }
+
+    header {
+      background-color: var(--rosa-suave);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--negro);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: bold;
+    }
+
+    .cta {
+      background-color: var(--marron);
+      border: none;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .cta:hover {
+      background-color: var(--beige);
+      color: var(--negro);
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .producto {
+      background-color: var(--rosa-intenso);
+      padding: 1rem;
+      border-radius: 10px;
+      color: white;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .producto h3 {
+      margin-top: 0;
+      color: white;
+    }
+
+    footer {
+      background-color: var(--rosa-suave);
+      color: var(--negro);
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Joyería Luna</h1>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Catálogo</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="productos">
+    <div class="producto">
+      <h3>Collar de perlas</h3>
+      <p>Elegancia atemporal para ocasiones especiales.</p>
+      <button class="cta">Comprar</button>
+    </div>
+    <div class="producto">
+      <h3>Anillo de oro rosa</h3>
+      <p>Diseño delicado que refleja tu personalidad.</p>
+      <button class="cta">Comprar</button>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Joyería Luna - Todos los derechos reservados
+  </footer>
+</body>
+</html>
