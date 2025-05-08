@@ -53,18 +53,6 @@ class ProductoController {
             res.json(resp);
         });
     }
-    listAnimal(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { nombre } = req.params;
-            console.log(nombre);
-            const resp = yield database_1.default.query(`SELECT * FROM  producto WHERE animal = ?;`, nombre);
-            if (resp.length > 0) {
-                res.json(resp);
-                return;
-            }
-            res.status(404).json({ 'mensaje': 'No hay productos de ese animal' });
-        });
-    }
     filtraPrecio(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const precio = req.body;
@@ -99,14 +87,48 @@ class ProductoController {
             res.status(404).json({ 'mensaje': 'No existe este producto' });
         });
     }
-    getAnimal(req, res) {
+    getTipo(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const resp = yield database_1.default.query('SELECT DISTINCT animal  FROM producto ');
+            const resp = yield database_1.default.query('SELECT DISTINCT tipo  FROM producto ');
             if (resp.length > 0) {
                 res.json(resp);
                 return;
             }
             res.status(404).json({ 'mensaje': 'No existe este producto' });
+        });
+    }
+    listTipo(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { nombre } = req.params;
+            console.log(nombre);
+            const resp = yield database_1.default.query(`SELECT * FROM  producto WHERE tipo = ?;`, nombre);
+            if (resp.length > 0) {
+                res.json(resp);
+                return;
+            }
+            res.status(404).json({ 'mensaje': 'No hay productos de ese tipo' });
+        });
+    }
+    getMaterial(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const resp = yield database_1.default.query('SELECT DISTINCT material  FROM producto ');
+            if (resp.length > 0) {
+                res.json(resp);
+                return;
+            }
+            res.status(404).json({ 'mensaje': 'No existe este producto' });
+        });
+    }
+    listMaterial(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { nombre } = req.params;
+            console.log(nombre);
+            const resp = yield database_1.default.query(`SELECT * FROM  producto WHERE material = ?;`, nombre);
+            if (resp.length > 0) {
+                res.json(resp);
+                return;
+            }
+            res.status(404).json({ 'mensaje': 'No hay productos de ese material' });
         });
     }
     getPrecio(req, res) {

@@ -31,14 +31,21 @@ getCantidad(id: any){
   return this.http.get(`${environment.API_URI}/productos/getCantidad/${id}`);
 }
 
-getAnimal(){
-  return this.http.get(`${environment.API_URI}/productos/getAnimal/`);
-}
+
 getNombresProductos(){
   return this.http.get(`${environment.API_URI}/productos/getNombreProducto/`);
 }
-listAnimal(animal: any){
-  return this.http.get(`${environment.API_URI}/productos/listAnimal/${animal}`);
+listTipo(tipo: any){
+  return this.http.get(`${environment.API_URI}/productos/listTipo/${tipo}`);
+}
+getTipo(){
+  return this.http.get(`${environment.API_URI}/productos/getTipo/`);
+}
+listMaterial(material: any){
+  return this.http.get(`${environment.API_URI}/productos/listMateria;/${material}`);
+}
+getMaterial(){
+  return this.http.get(`${environment.API_URI}/productos/getMaterial/`);
 }
 
 filtraprecio(n1: any, n2 : any){
