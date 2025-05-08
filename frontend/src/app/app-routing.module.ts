@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { VentaComponent } from './components/venta/venta.component';
 import { CompraComponent } from './components/compra/compra.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 const routes: Routes = [
 /*{
   path: "",
@@ -22,15 +23,15 @@ const routes: Routes = [
   path: "",
   redirectTo: "/home",
   pathMatch: "full"
-},{
-  path: 'home',
-  component: HomeComponent,
 },
-
 {
   path: 'home',
   component: HomeComponent,
   children:[
+    {
+      path: '',
+      component: InicioComponent,
+    },
     {
       path: 'usuario',
       component: UsuarioComponent,
