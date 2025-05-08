@@ -9,14 +9,25 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { VentaComponent } from './components/venta/venta.component';
 import { CompraComponent } from './components/compra/compra.component';
 const routes: Routes = [
-{
+/*{
   path: "",
   redirectTo: "/login",
   pathMatch: "full"
 },{
   path: 'login',
   component: LoginComponent,
+},*/
+
+{
+  path: "",
+  redirectTo: "/home",
+  pathMatch: "full"
 },{
+  path: 'home',
+  component: HomeComponent,
+},
+
+{
   path: 'home',
   component: HomeComponent,
   children:[
