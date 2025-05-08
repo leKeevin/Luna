@@ -32,16 +32,7 @@ class ProductoController
     const resp = await pool.query(`DELETE FROM producto WHERE id = ${id}`);
     res.json(resp);
     }
-    public async listAnimal(req: Request, res: Response): Promise<void> {
-        const {nombre} = req.params;
-        console.log(nombre) 
-        const resp = await pool.query(`SELECT * FROM  producto WHERE animal = ?;`, nombre);
-        if(resp.length>0){
-           res.json(resp);
-           return ;
-        }
-        res.status(404).json({'mensaje': 'No hay productos de ese animal'});
-    }
+    
 
     public async filtraPrecio(req: Request, res: Response): Promise<void> {
         const precio = req.body;
@@ -72,14 +63,43 @@ class ProductoController
          }
          res.status(404).json({'mensaje': 'No existe este producto'});
     }
-    public async getAnimal(req: Request, res : Response):Promise<void>{
-        const resp = await pool.query('SELECT DISTINCT animal  FROM producto ',);
+    public async getTipo(req: Request, res : Response):Promise<void>{
+        const resp = await pool.query('SELECT DISTINCT tipo  FROM producto ',);
         if(resp.length>0){
             res.json(resp);
             return ;
          }
          res.status(404).json({'mensaje': 'No existe este producto'});
     }
+    public async listTipo(req: Request, res: Response): Promise<void> {
+        const {nombre} = req.params;
+        console.log(nombre) 
+        const resp = await pool.query(`SELECT * FROM  producto WHERE tipo = ?;`, nombre);
+        if(resp.length>0){
+           res.json(resp);
+           return ;
+        }
+        res.status(404).json({'mensaje': 'No hay productos de ese tipo'});
+    }
+    public async getMaterial(req: Request, res : Response):Promise<void>{
+        const resp = await pool.query('SELECT DISTINCT material  FROM producto ',);
+        if(resp.length>0){
+            res.json(resp);
+            return ;
+         }
+         res.status(404).json({'mensaje': 'No existe este producto'});
+    }
+    public async listMaterial(req: Request, res: Response): Promise<void> {
+        const {nombre} = req.params;
+        console.log(nombre) 
+        const resp = await pool.query(`SELECT * FROM  producto WHERE material = ?;`, nombre);
+        if(resp.length>0){
+           res.json(resp);
+           return ;
+        }
+        res.status(404).json({'mensaje': 'No hay productos de ese material'});
+    }
+
     public async getPrecio(req: Request, res : Response):Promise<void>{
         const {id} = req.params;
         const resp = await pool.query('SELECT precio FROM producto WHERE id = ?',id);

@@ -3,13 +3,13 @@ import pool from '../database';
 class UserController
 {
     public async list(req: Request, res: Response ): Promise<void>{
-        const respuesta = await pool.query('SELECT u.*,r.nombre as rol FROM user as u,rol as r WHERE u.id_rol=r.id');
+        const respuesta = await pool.query('SELECT u.*,r.nombre as rol FROM usuario as u,rol as r WHERE u.id_rol=r.id');
         res.json( respuesta );
     }
     
     public async listOne(req: Request, res: Response): Promise <void>{
         const {id} = req.params;
-        const respuesta = await pool.query('SELECT u.*,r.nombre as rol FROM user as u,rol as r WHERE u.id = ? AND u.id_rol=r.id', [id]);
+        const respuesta = await pool.query('SELECT u.*,r.nombre as rol FROM usuario as u,rol as r WHERE u.id = ? AND u.id_rol=r.id', [id]);
         if(respuesta.length>0){
             res.json(respuesta[0]);
             //console.log(respuesta[0])
@@ -19,24 +19,24 @@ class UserController
     }
 
     public async create(req: Request, res: Response): Promise<void> {
-        const resp = await pool.query("INSERT INTO user set ?", [req.body]);
+        const resp = await pool.query("INSERT INTO usuario set ?", [req.body]);
         res.json(resp);
     }
     public async update(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
     console.log(req.body);
     console.log(req.params);    
-    const resp = await pool.query("UPDATE user set ? WHERE id = ?", [req.body, id]);
+    const resp = await pool.query("UPDATE usuario set ? WHERE id = ?", [req.body, id]);
     res.json(resp);
     }
     public async delete(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
-    const resp = await pool.query(`DELETE FROM user WHERE id = ${id}`);
+    const resp = await pool.query(`DELETE FROM usuario WHERE id = ${id}`);
     res.json(resp);
     }
     public async listUserRol(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
-        const resp = await pool.query(`SELECT user.*, rol.nombre as nombreRol FROM  user LEFT JOIN rol on user.id_rol = rol.id WHERE user.id_Rol = ?;`,id);
+        const resp = await pool.query(`SELECT usuario.*, rol.nombre as nombreRol FROM  usuario LEFT JOIN rol on usuario.id_rol = rol.id WHERE usuario.id_Rol = ?;`,id);
         if(resp.length>0){
            res.json(resp);
            return ;
@@ -45,7 +45,7 @@ class UserController
     }
     public async historial(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
-        const resp = await pool.query(`SELECT v.id_producto,v.id, v.cantidad, v.monto, v.fecha FROM  user as u 
+        const resp = await pool.query(`SELECT v.id_producto,v.id, v.cantidad, v.monto, v.fecha FROM  usuario as u 
             LEFT JOIN venta as v on u.id = v.id_usuario WHERE u.id = ?;`,id);
         if(resp.length>0){
             for(let i =0; i<resp.length; i++){
@@ -66,7 +66,7 @@ class UserController
     public async validarUsuario(req: Request, res: Response): Promise<void> {
         console.log(req.params);
         let aux = req.body;
-        const resp = await pool.query("Select * from user WHERE correo = ? AND contra = ?;",[aux.correo, aux.contra]);
+        const resp = await pool.query("Select * from usuario WHERE correo = ? AND contra = ?;",[aux.correo, aux.contra]);
         if(resp.length>0){
             res.json(resp[0]);
             return ;

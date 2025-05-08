@@ -17,14 +17,14 @@ const database_1 = __importDefault(require("../database"));
 class UserController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const respuesta = yield database_1.default.query('SELECT u.*,r.nombre as rol FROM user as u,rol as r WHERE u.id_rol=r.id');
+            const respuesta = yield database_1.default.query('SELECT u.*,r.nombre as rol FROM usuario as u,rol as r WHERE u.id_rol=r.id');
             res.json(respuesta);
         });
     }
     listOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const respuesta = yield database_1.default.query('SELECT u.*,r.nombre as rol FROM user as u,rol as r WHERE u.id = ? AND u.id_rol=r.id', [id]);
+            const respuesta = yield database_1.default.query('SELECT u.*,r.nombre as rol FROM usuario as u,rol as r WHERE u.id = ? AND u.id_rol=r.id', [id]);
             if (respuesta.length > 0) {
                 res.json(respuesta[0]);
                 //console.log(respuesta[0])
@@ -35,7 +35,7 @@ class UserController {
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const resp = yield database_1.default.query("INSERT INTO user set ?", [req.body]);
+            const resp = yield database_1.default.query("INSERT INTO usuario set ?", [req.body]);
             res.json(resp);
         });
     }
@@ -44,21 +44,21 @@ class UserController {
             const { id } = req.params;
             console.log(req.body);
             console.log(req.params);
-            const resp = yield database_1.default.query("UPDATE user set ? WHERE id = ?", [req.body, id]);
+            const resp = yield database_1.default.query("UPDATE usuario set ? WHERE id = ?", [req.body, id]);
             res.json(resp);
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const resp = yield database_1.default.query(`DELETE FROM user WHERE id = ${id}`);
+            const resp = yield database_1.default.query(`DELETE FROM usuario WHERE id = ${id}`);
             res.json(resp);
         });
     }
     listUserRol(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const resp = yield database_1.default.query(`SELECT user.*, rol.nombre as nombreRol FROM  user LEFT JOIN rol on user.id_rol = rol.id WHERE user.id_Rol = ?;`, id);
+            const resp = yield database_1.default.query(`SELECT usuario.*, rol.nombre as nombreRol FROM  usuario LEFT JOIN rol on usuario.id_rol = rol.id WHERE usuario.id_Rol = ?;`, id);
             if (resp.length > 0) {
                 res.json(resp);
                 return;
@@ -69,7 +69,7 @@ class UserController {
     historial(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const resp = yield database_1.default.query(`SELECT v.id_producto,v.id, v.cantidad, v.monto, v.fecha FROM  user as u 
+            const resp = yield database_1.default.query(`SELECT v.id_producto,v.id, v.cantidad, v.monto, v.fecha FROM  usuario as u 
             LEFT JOIN venta as v on u.id = v.id_usuario WHERE u.id = ?;`, id);
             if (resp.length > 0) {
                 for (let i = 0; i < resp.length; i++) {
@@ -89,7 +89,7 @@ class UserController {
         return __awaiter(this, void 0, void 0, function* () {
             console.log(req.params);
             let aux = req.body;
-            const resp = yield database_1.default.query("Select * from user WHERE correo = ? AND contra = ?;", [aux.correo, aux.contra]);
+            const resp = yield database_1.default.query("Select * from usuario WHERE correo = ? AND contra = ?;", [aux.correo, aux.contra]);
             if (resp.length > 0) {
                 res.json(resp[0]);
                 return;

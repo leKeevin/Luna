@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   usuariologin = new Usuario();
   usuarioNuevo = new Usuario();
   constructor(private usuarioService: UsuarioService, private router: Router) {
-    this.usuariologin.correo = "kio@gmail.com";
-    this.usuariologin.contrasena = "asdf";
+    this.usuariologin.correo = "admin";
+    this.usuariologin.contrasena = "admin";
   }
 
   ngOnInit(): void {

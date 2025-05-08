@@ -15,12 +15,14 @@ public router: Router=Router();
         this.router.delete('/delete/:id', productoController.delete);
         this.router.get('/showAll/', productoController.list );
         this.router.get('/listOne/:id', productoController.listOne );
-        this.router.get('/listAnimal/:nombre',productoController.listAnimal);
         this.router.post('/filtraPrecio/',productoController.filtraPrecio);        
         this.router.get('/getCantidad/:id',productoController.getCantidad);
-        this.router.get('/getPrecio/:id',productoController.getPrecio);
-        this.router.get('/getAnimal/',productoController.getAnimal);
         this.router.get('/getNombreProducto/',productoController.getNombresProducto);
+        this.router.get('/getPrecio/:id',productoController.getPrecio);
+        this.router.get('/listTipo/:nombre',productoController.listTipo);
+        this.router.get('/getTipo/',productoController.getTipo);
+        this.router.get('/listMaterial/:nombre',productoController.listMaterial);
+        this.router.get('/getMaterial/',productoController.getMaterial);
         
         
     }

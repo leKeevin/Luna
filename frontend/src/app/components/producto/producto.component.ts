@@ -13,7 +13,7 @@ declare var $:any;
 export class ProductoComponent implements OnInit {
   productos: Producto[] = [];
   producto!: Producto;
-  animales: Animal[] = [];
+  tipos: Tipo[] = [];
   aux !: any ;
   preciomin!: number;
   preciomax!:number
@@ -31,7 +31,7 @@ export class ProductoComponent implements OnInit {
     this.producto = new Producto();
     this.reiniciaVariables();
     this.list()
-    this.getAnimal()
+    this.getTipo()
   }
 
   nuevoProducto(){
@@ -42,7 +42,7 @@ export class ProductoComponent implements OnInit {
 
   }
   guardaNuevoProducto(){
-    this.productoService.crear(this.producto.nombre,this.producto.animal,this.producto.precio,this.producto.cantidad,this.producto.descripcion)
+    this.productoService.crear(this.producto.nombre,this.producto.tipo,this.producto.precio,this.producto.cantidad,this.producto.descripcion)
     .subscribe((resusuario: any) =>
     {
     $('#modalNuevoProducto').modal('close');
@@ -84,7 +84,7 @@ export class ProductoComponent implements OnInit {
 
   }
   guardaModifica(){
-    this.producto.animal = this.producto.animal.toLocaleLowerCase();
+    this.producto.tipo = this.producto.tipo.toLocaleLowerCase();
     this.productoService.actualizar(this.producto).subscribe((resusuario: any) =>
     {
     $('#modalModificaProducto').modal('close');
@@ -142,12 +142,12 @@ export class ProductoComponent implements OnInit {
       (err) => console.error(err)
     );
   }
-  getAnimal(){
-    this.productoService.getAnimal().subscribe(
+  getTipo(){
+    this.productoService.getTipo().subscribe(
       (resusuario: any) => {
-        this.animales = resusuario;
+        this.tipos = resusuario;
         //console.log(resusuario);
-        console.log(this.animales);
+        console.log(this.tipos);
       },
       (err) => console.error(err)
     );
@@ -162,8 +162,8 @@ export class ProductoComponent implements OnInit {
       (err) => console.error(err)
     );
   }
-  listAnimal(){
-    this.productoService.listAnimal(this.aux).subscribe(
+  listTipo(){
+    this.productoService.listTipo(this.aux).subscribe(
       (resusuario: any) => {
         this.productos = resusuario;
         //console.log(resusuario);
@@ -175,10 +175,10 @@ export class ProductoComponent implements OnInit {
 
 }
 
-class Animal{
-  animal: string;
+class Tipo{
+  tipo: string;
   constructor(){
-    this.animal=''
+    this.tipo=''
   } 
 }
 

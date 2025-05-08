@@ -14,12 +14,12 @@
 
     <div class="row col s12 card ">
       <div>
-        <h5 class="center">Filtrar por animal</h5>
+        <h5 class="center">Filtrar por Tipo</h5>
       </div>
       <div>
-        <select [(ngModel)]="aux" id="rol" name="rol" class="browser-default waves-red s12 " (change)="listAnimal()">
-          <option value="" disabled selected>Escoge un animal</option>
-          <option *ngFor="let animal of animales" value="{{animal.animal}}">{{ animal.animal }}</option>
+        <select [(ngModel)]="aux" id="rol" name="rol" class="browser-default waves-red s12 " (change)="listTipo()">
+          <option value="" disabled selected>Escoge un Tipo</option>
+          <option *ngFor="let tipo of tipos" value="{{tipo.tipo}}">{{ tipo.tipo }}</option>
         </select>
 
       </div>
@@ -78,7 +78,7 @@
                 <div class="row ">
 
                   <span class="card-title">{{producto.nombre}}</span>
-                  <p><strong>Animal de origen: </strong> {{producto.animal}}</p>
+                  <p><strong>Tipo: </strong> {{producto.tipo}}</p>
                   <p><strong>Precio por Kg:</strong> ${{producto.precio}}</p>
                   <p><strong>Cantidad disponible: </strong> {{producto.cantidad}} Kg</p>
                   <p>{{producto.descripcion}}</p>
@@ -140,8 +140,8 @@
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix">pets</i>
-            <input [(ngModel)]="producto.animal" type="text" id="animal" name="animal" required>
-            <label for="animal" class="active">Animal</label>
+            <input [(ngModel)]="producto.tipo" type="text" id="tipo" name="tipo" required>
+            <label for="tipo" class="active">Tipo</label>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix">attach_money</i>
@@ -231,8 +231,8 @@
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix">pets</i>
-            <input [(ngModel)]="producto.animal" type="text" id="animal" name="animal" required>
-            <label for="animal" class="active">Animal</label>
+            <input [(ngModel)]="producto.tipo" type="text" id="tipo" name="tipo" required>
+            <label for="tipo" class="active">Tipo</label>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix">attach_money</i>
