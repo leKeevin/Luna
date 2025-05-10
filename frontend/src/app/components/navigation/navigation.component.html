@@ -1,29 +1,23 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<body>
 <header>
-
-    <!-- Barra -->
+    <div class="header-content">
+    <div class="imagen-logo-container">
+        <img class="imagen-logo" src="assets/luna.jpg" alt="Luna" />
+    </div>
+    <h1>Joyería Luna</h1> 
+</div>
     <nav>
-        <div class="nav-wrapper">
-            <a (click)="producto()" class="brand-logo right">Logo</a>
-            <ul id="nav-mobile" class="">
-                <li><a (click)="producto()">Productos<i class="material-icons right">store</i></a></li>
-                <li><a (click)="carrito()">Carrito<i class="material-icons right">shopping_cart</i></a></li>
-                <li><a (click)="compras()">Compras <i class="material-icons right">local_mall</i> </a></li>
-                <li><a (click)="prefil()">Mi perfil<i class="material-icons right">account_circle</i> </a></li>
-                <li *ngIf="aux==3"><a (click)="usuario()">Usuarios<i class="material-icons right">account_box</i></a></li>
-                <li *ngIf="aux==3"><a (click)="venta()">Ventas<i class="material-icons right">attach_money</i></a></li>
-                <li><a (click)="cerrarSesion()" >Cerrar sesion<i class="material-icons right">reply</i> </a></li>
-                <!-- <li>
-                    <div class="input-field col s12">
-                        <select style="display: none;">
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-                    </div>
-                </li> -->
-
-            </ul>
-        </div>
+      <a href="/home"><span class="icon"><i class="fas fa-house"></i></span>
+        <span class="text">Inicio</span>
+      </a>
+      <a href="/home/producto"><span class="icon"><i class="fas fa-list"></i></span>
+        <span class="text">Catálogo</span>
+      </a>
+      <a href="/home/compra"><span class="icon"><i class="fas fa-phone"></i></span>
+        <span class="text">Contacto</span>
+      </a>
     </nav>
 </header>
+</body>
