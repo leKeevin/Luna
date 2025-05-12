@@ -20,6 +20,8 @@ export class NavigationComponent implements OnInit {
       $('select').formSelect();
     });
    }
+
+   
    usuario(){
     this.router.navigateByUrl('/home/usuario')
    }
