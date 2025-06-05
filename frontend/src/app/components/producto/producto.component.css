@@ -1,0 +1,446 @@
+.contenido {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px; /* Espacio entre filtro y tarjetas */
+  padding: 20px;
+  background: white;
+  flex-wrap: wrap;
+}
+
+/* Ajusta el contenedor de tarjetas para que no tenga márgenes que desalineen */
+.card-container {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Ajusta según el tamaño disponible */
+  gap: 10px;
+  margin-left:0cm;
+  margin-rigth:0cm;
+    
+}
+
+/* Estilo de las tarjetas */
+.card {
+    background-color: #fff;
+    width: 5cm;
+    height: 8cm;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(250, 140, 177, 0.7); /* Sombra suave */
+}
+
+/* Imagen dentro de las tarjetas */
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto al hacer hover sobre la imagen */
+.card:hover img {
+    transform: scale(1.05); /* Zoom suave al pasar el mouse */
+}
+
+/* Enlaces dentro de la tarjeta */
+.card a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Botón de agregar al carrito */
+.add-cart {
+    display: block;
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #fff;
+    color: #007bff;
+    border-radius: 50px;
+    border: 2px solid #007bff;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.add-cart:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Estilos del modal */
+
+
+/* Estilos de la paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+/* Paginación números */
+.pagination .page-num {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #f8f9fa;
+    color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination .page-num:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination .active {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+/* Contenedor del filtro */
+.price-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  margin: 0 auto;
+  margin-top: 30px;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+}
+
+/* Estilo del contenedor para los inputs en línea */
+.price-filter .price-range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Estilo de los inputs */
+.price-filter input {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 120px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto cuando los inputs están en foco */
+.price-filter input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Estilo para el separador */
+.price-filter .separator {
+  font-weight: bold;
+  color: #555;
+  font-size: 16px;
+}
+
+/* Botón de filtro con estilo moderno */
+.price-filter button {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Efecto hover en el botón */
+.price-filter button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Efecto para deshabilitar el botón de filtro */
+.price-filter button:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+/* Añadir un poco de espaciado adicional entre los filtros y el contenido */
+.card-container {
+  margin-top: 20px;
+}
+/*icon*/
+
+.icon {
+  text-align: center;
+  font-size: 0.9375rem;
+  margin-right: 10px;
+}
+
+.icon-close {
+  text-align: center;
+  font-size: 1.9375rem;
+  margin-right: 20px;
+}
+
+
+/*
+.input-group {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px;
+  color: #007bff;
+  pointer-events: none;
+  font-size: 14px;
+}
+
+.input-group input {
+  padding-left: 30px; /* Deja espacio para el ícono /
+}
+*/
+
+
+/* modal*/
+
+/* Modal básico */
+.modal {
+  all: unset;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  opacity: 0;
+  color: black;
+  transition: opacity 0.3s ease; /* Transición de fade-in/fade-out */
+}
+
+/* Cuando el modal está abierto */
+.modal.open {
+  display: flex; /* Mostrar el modal */
+  opacity: 1;
+}
+
+/* Estilo del contenido del modal */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 900px;
+  width: 90%; /* Ajuste para pantallas más pequeñas */
+  display: flex;
+  flex-direction: row; /* Alineación horizontal */
+  justify-content: space-between; /* Espacio entre imagen y texto */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra suave */
+  transform: translateY(-30px); /* Efecto de subida al abrir */
+  transition: transform 0.3s ease-in-out; /* Efecto de subida */
+}
+
+.modal.open .modal-content {
+  transform: translateY(0); /* Efecto cuando el modal se abre */
+}
+
+/* Estilo de la imagen */
+.modal-content img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+/* Estilo del texto dentro del modal */
+.modal-content div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: calc(100% - 320px); /* Ajuste de espacio por la imagen */
+}
+
+/* Asegurar que el texto comience desde la izquierda */
+.modal-content p {
+  font-size: 1rem;
+  color: black;
+  margin-bottom: 0px;
+  text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+  word-wrap: break-word; /* Permite que el texto se ajuste a la línea */
+}
+
+/* Estilos para el nombre del producto */
+.modal-content h3 {
+  font-size: 1.5rem;
+  color: black;
+  margin-bottom: 10px; /* Menor margen para acercar el nombre a la lista */
+  text-align: left;
+}
+
+/* Estilos de la lista */
+.modal-content ul {
+  font-size: 0.9rem;
+  color: #444;
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0; /* Eliminar espacio innecesario al principio de la lista */
+}
+
+.modal-content ul li {
+  margin-bottom: 5px; /* Asegurar un poco de separación entre las líneas */
+}
+
+/* Estilo para el enlace de cerrar */
+.modal-content a {
+  color: #d9534f;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal-content a:hover {
+  color: #c9302c; /* Cambio de color al pasar el cursor */
+}
+
+/* Cerrar el modal */
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal .close:hover {
+  color: #d9534f; /* Color de hover para el botón de cerrar */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column;
+    width: 95%;
+    padding: 15px;
+  }
+
+  .modal-content img {
+    max-width: 250px;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .modal-content div {
+    width: 100%;
+  }
+}
+
+/* Ajustes específicos para la imagen y descripción */
+.imagen-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra la imagen horizontalmente */
+  justify-content: center; /* Centra el contenido verticalmente */
+  border-right: 2px solid #ccc; /* Borde derecho de 2px */
+  padding-right: 20px; /* Espacio interno a la derecha para no estar pegado al borde */
+  margin-right: 20px; /* Para separar un poco el borde de la imagen */
+}
+
+.imagen-description img {
+  max-width: 100%; /* Asegura que la imagen se ajuste al contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-bottom: 15px; /* Espacio entre la imagen y la descripción */
+}
+
+/* Mejor alineación del modal */
+.modal-content {
+  display: flex;
+  justify-content: space-between; /* Espacia los elementos a la izquierda y derecha */
+  align-items: flex-start; /* Alinea los elementos al inicio (arriba) */
+}
+
+
+/* Botón de agregar al carrito modal */
+.add-cart-modal {
+    display:  inline-block;;
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #fff;
+    color: #333 !important;
+    border-radius: 50px;
+    border: 2px solid #007bff;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.add-cart-modal:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+
+.zoomable {
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.zoomed {
+  transform: scale(2); /* Puedes ajustar el nivel de zoom */
+  cursor: zoom-out;
+  z-index: 9999;
+}

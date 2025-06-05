@@ -10,6 +10,7 @@ constructor(private http: HttpClient) { }
 list() {
   return this.http.get(`${environment.API_URI}/productos/showAll/`);
 }
+
 listOne(id: any){
   return this.http.get(`${environment.API_URI}/productos/listOne/${id}`);
 }

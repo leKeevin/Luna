@@ -20,6 +20,12 @@ export class ProductoComponent implements OnInit {
   cantidad = 0
   idCarrito=-1
   rol:any = localStorage.getItem('id_rol')
+  zoomActivo: boolean = false;
+  productosPorPagina = 10;
+  paginaActual = 1;
+
+   mostrarModal: boolean = false;  // Controlador del modal
+  
   ngOnInit(): void {
     $(document).ready(function(){
       $('select').formSelect();
@@ -33,6 +39,64 @@ export class ProductoComponent implements OnInit {
     this.list()
     this.getTipo()
   }
+
+  alternarZoom() {
+  this.zoomActivo = !this.zoomActivo;
+}
+
+  // Método para obtener los productos paginados
+  get productosPaginados() {
+    const inicio = (this.paginaActual - 1) * this.productosPorPagina;
+    const fin = inicio + this.productosPorPagina;
+    return this.productos.slice(inicio, fin);
+  }
+
+  // Método para generar los números de páginas
+  get paginas(): number[] {
+    const total = this.totalPaginas;
+    let paginas: number[] = [];
+    const totalProductos = this.productos.length;
+    const rango = Math.ceil(totalProductos / this.productosPorPagina);
+   // const rango = 6; // Número máximo de botones de página
+
+    // Establecer límites para las páginas que se deben mostrar
+    let start = Math.max(1, this.paginaActual - Math.floor(rango / 2));
+    let end = Math.min(total, start + rango - 1);
+
+    // Ajustar la posición del "start" si estamos cerca del final
+    if (this.paginaActual > total - Math.floor(rango / 2)) {
+      start = Math.max(1, total - rango + 1);
+      end = total;
+    }
+
+    for (let i = start; i <= end; i++) {
+      paginas.push(i);
+    }
+    return paginas;
+  }
+
+  // Método para cambiar de página
+  irPagina(pagina: number) {
+    if (pagina >= 1 && pagina <= this.totalPaginas) {
+      this.paginaActual = pagina;
+    }
+  }
+
+  // Obtener el total de páginas
+  get totalPaginas() {
+    return Math.ceil(this.productos.length / this.productosPorPagina);
+  }
+
+  modal(producto:any){
+   console.log(producto); // Ya tienes el producto, ahora solo lo asignamos
+  this.producto = producto; // Asigna el producto al componente
+ this.mostrarModal = true;
+  }
+
+  cerrarModal() {
+  this.mostrarModal = false; // Cierra el modal
+}
+
 
   nuevoProducto(){
     this.producto = new Producto()
@@ -179,6 +243,8 @@ class Tipo{
   tipo: string;
   constructor(){
     this.tipo=''
-  } 
+  }
+
+  
 }
 
