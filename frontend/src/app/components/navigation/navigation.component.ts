@@ -9,9 +9,10 @@ declare var $:any;;
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  aux !:any;
+  aux :any = null;
   constructor(private router: Router) {
     this.aux = localStorage.getItem("id_rol") 
+    console.log(this.aux)
 
 
    }

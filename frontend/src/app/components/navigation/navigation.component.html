@@ -18,6 +18,12 @@
       <a href="/home/compra"><span class="icon"><i class="fas fa-phone"></i></span>
         <span class="text">Contacto</span>
       </a>
+      <a href="/home/carrito"><span class="icon"><i class="fas fa-cart-shopping"></i></span>
+        <span class="text">Carrito</span>
+      </a>
+      <a *ngIf="aux==null" href="/login">
+        <Button>Iniciar Sesion</Button>
+      </a>
     </nav>
 </header>
 </body>

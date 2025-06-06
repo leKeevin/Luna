@@ -1,56 +1,64 @@
-<div class="container center">
-    <div class="row">
-        <div class="col s12 m6 offset-m3">
-            <!-- Contenido del formulario de login -->
-            <div class="card">
-                <div class="card-content">
-                    <h2 class="center-align">Iniciar Sesión</h2>
-                    <div class="row">
-                        <form class="col s12">
-                            <div class="row col s12">
-                                <div class=" input-field">
-                                    <i class="material-icons prefix">email</i>
-                                    <input type="email" [(ngModel)]="usuariologin.correo" name="emailLogin"
-                                        id="emailLogin" placeholder="correo" autocomplete="off">
-                                    <label for="emailLogin">correo</label>
-                                </div>
-                                <div class="input-field">
-                                    <i class="material-icons prefix">lock</i>
-                                    <input [(ngModel)]="usuariologin.contrasena" type="password" id="passwordLogin"
-                                        name="passwordLogin" required>
-                                    <label for="passwordLogin">Contraseña</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <a (click)="logueo()">
-                                    <button class="waves-effect btn-large red lighten-1 white-text">LOGIN</button>
-                                </a>
-                                <br>
-                                <br>
+<div class="fondo">
+    <div class="log">
 
-                                <div>
+    <div class="imagen-logo-container">
+        <img class="imagen-logo" src="assets/luna.jpg" alt="Luna" />
+    </div>
+    <div class="logueo ">
+        <!-- Contenido del formulario de login -->
+        <div class="card center">
+            <div class="card-content">
+                <h2 class="center-align">Iniciar Sesión</h2>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row col s12">
+                            <div class=" input-field">
+                                <i class="material-icons prefix">email</i>
+                                <input type="email" [(ngModel)]="usuariologin.correo" name="emailLogin" id="emailLogin"
+                                    autocomplete="off">
+                                <label for="emailLogin">correo</label>
+                            </div>
+                            <div class="input-field">
+                                <i class="material-icons prefix">lock</i>
+                                <input [(ngModel)]="usuariologin.contrasena" type="password" id="passwordLogin"
+                                    name="passwordLogin" required>
+                                <label for="passwordLogin">Contraseña</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <a (click)="logueo()">
+                                <button class="waves-effect btn-large pink lighten-1 white-text">LOGIN</button>
+                            </a>
+                            <br>
+                            <br>
+
+                            <div>
+                                <span class="registro">
+                                    Eres nuevo
                                     <a (click)="nuevoUsuario()">
-                                        <button class="  waves-effect btn-large red lighten-1 white-text">
-                                            Nuevo Usuario
-                                        </button>
+                                        registrate aqui
                                     </a>
-                                </div>
-
+                                </span>
                             </div>
-                        </form>
-                    </div>
+
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+
 </div>
+
+
 
 <div id="modalNuevoUsuario" class="modal">
     <div class="modal-content">
         <div class="col s12 m6">
             <!-- Contenido del div de nuevo -->
-            <div class="card">
-                <div class="card-content">
+            <!-- <div class="card"> -->
+                <!-- <div class="card-content"> -->
                     <div class="container center">
                         <h2>Registro de Usuario</h2>
                         <form id="registroForm">
@@ -85,7 +93,8 @@
                             <div class="row">
                                 <div class="col s6 center">
                                     <a (click)="guardarNuevoUsuario()">
-                                        <button  class="waves-effect btn-large red lighten-1 white-text modal-close" type="submit">
+                                        <button class="waves-effect btn-large pink lighten-1 white-text modal-close"
+                                            type="submit">
                                             Registrar
                                             <i class="material-icons right">send</i>
                                         </button>
@@ -93,8 +102,9 @@
                                 </div>
 
                                 <div class="col s6 center">
-                                    <button 
-                                        class="modal-action modal-close waves-effect btn-large red lighten-1 white-text" type="submit">Cancelar
+                                    <button
+                                        class="modal-action modal-close waves-effect btn-large pink lighten-1 white-text"
+                                        type="submit">Cancelar
                                         <i class="material-icons right">cancel</i>
                                     </button>
                                 </div>
@@ -103,8 +113,8 @@
 
 
                         </form>
-                    </div>
-                </div>
+                    <!-- </div> -->
+                <!-- </div> -->
             </div>
         </div>
     </div>
