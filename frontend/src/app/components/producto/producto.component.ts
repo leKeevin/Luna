@@ -19,7 +19,7 @@ export class ProductoComponent implements OnInit {
   preciomax!:number
   cantidad = 0
   idCarrito=-1
-  rol:any = localStorage.getItem('id_rol')
+  id:any = localStorage.getItem('id')
   zoomActivo: boolean = false;
   productosPorPagina = 10;
   paginaActual = 1;
@@ -33,7 +33,7 @@ export class ProductoComponent implements OnInit {
   }
 
   constructor(private productoService: ProductoService, private carritoService: CarritoService, private router: Router) {
-
+    // console.log("rol",this.rol)
     this.producto = new Producto();
     this.reiniciaVariables();
     this.list()
@@ -121,9 +121,14 @@ export class ProductoComponent implements OnInit {
   agregaCarrito(producto_id:any){
     this.idCarrito = producto_id
     this.cantidad=1
-    $('#modalAgregaCarrito').modal();
-    $("#modalAgregaCarrito").modal("open");
-
+    if(this.id ==null){
+          this.carritoService.addItem({"id_producto":producto_id, "cantidad":this.cantidad});
+    // console.log('Producto agregado:', producto);
+    }else{
+      this.carritoService.crear(this.cantidad, producto_id, this.id).subscribe((resUsuario:any)=>{
+        
+      })
+    }
   }
   guardaCarrito(id_producto: any){
     let aux1:any = localStorage.getItem('id');
@@ -134,8 +139,8 @@ export class ProductoComponent implements OnInit {
     },
     err => console.log(err)
     );
-    $('#modalAgregaCarrito').modal('close');
   }
+
   modificaProducto(id:any){
     this.productoService.listOne(id).subscribe((resUsuario:any)=>{
       this.producto = resUsuario;

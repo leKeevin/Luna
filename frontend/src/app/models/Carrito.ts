@@ -8,6 +8,7 @@ export class Carrito{
     cantidad: number;
     producto: Producto;
     precio: number;
+    imagen_nombre:string;
     constructor() {
         this.producto = new Producto();
         this.id = 0;
@@ -16,5 +17,6 @@ export class Carrito{
         this.id_usuario = 0;
         this.precio = 0;
         this.nombre= "";
+        this.imagen_nombre ="";
     }
 }
